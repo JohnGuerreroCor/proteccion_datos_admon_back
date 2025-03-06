@@ -7,10 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
 @SpringBootApplication
-public class PlantillaAdministradorApplication {
+public class ProteccionDatosAdmonApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PlantillaAdministradorApplication.class, args);
+		SpringApplication.run(ProteccionDatosAdmonApplication.class, args);
 	}
 	
 

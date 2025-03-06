@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>usco.edu.co</groupId>
-	<artifactId>plantilla_admon</artifactId>
+	<artifactId>proteccion_datos_admon</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	<name>plantilla_admon</name>
-	<description>Plantilla inicial</description>
+	<name>proteccion_datos_admon</name>
+	<description>Proteccion Datos Admon</description>
 
 	<properties>
 		<java.version>1.8</java.version>

@@ -1,4 +1,4 @@
-# Plantilla Backend - Módulo Administrador
+# Módulo Protección Datos Admon Back
 
 ![Logo de la USCO](https://www.usco.edu.co/imagen-institucional/logo/universidad-surcolombiana.png)
 
@@ -25,7 +25,7 @@ Esta plantilla de backend ha sido desarrollada utilizando Java 8 y Spring Boot, 
 
 ## Descripción
 
-Este proyecto proporciona una plantilla básica para desarrollar módulos administrativos en el backend. Está estructurada para el manejo de datos con JPA, generación de reportes con JasperReports, y cuenta con soporte para seguridad con OAuth2 y JWT.
+Sistema Integral de Gestión de Autorizaciones para el Tratamiento de Datos Personales.
 
 ## Instalación y Uso
 
