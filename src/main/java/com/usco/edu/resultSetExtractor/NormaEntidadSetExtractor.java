@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import com.usco.edu.entities.NormativaEntidad;
 import com.usco.edu.rowMapper.NormaEntidadRowMapper;
 
-public class NormaEntidadSetExtractor implements ResultSetExtractor<List<NormativaEntidad>>{
+public class NormaEntidadSetExtractor implements ResultSetExtractor<List<NormativaEntidad>> {
 
 	@Override
 	public List<NormativaEntidad> extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -19,7 +19,7 @@ public class NormaEntidadSetExtractor implements ResultSetExtractor<List<Normati
 		while (rs.next()) {
 			list.add(new NormaEntidadRowMapper().mapRow(rs, (rs.getRow() - 1)));
 		}
-		
+
 		return list;
 	}
 }

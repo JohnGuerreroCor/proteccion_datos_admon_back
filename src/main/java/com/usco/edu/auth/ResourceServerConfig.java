@@ -22,45 +22,40 @@ import org.springframework.web.filter.CorsFilter;
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        // CONFIGURACIÓN DE PERMISOS PARA RUTAS ESPECÍFICAS
-        http.authorizeRequests().antMatchers("/api").permitAll()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/token").permitAll()
-                .antMatchers("/obtenerFoto/{codigo}").permitAll()
-                .antMatchers("/archivos/{per_codigo}/{uaa}/{usuario}").permitAll()
-                .antMatchers("/archivos/{usuario}/{uaa}").permitAll()
-                .antMatchers("/assets/**").permitAll()
-                .antMatchers("/**.png").permitAll()
-                .antMatchers("/**.js").permitAll()
-                .antMatchers("/**.css").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/").permitAll()
-                .and().cors().configurationSource(corsConfigurationSource());
-    }
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		// CONFIGURACIÓN DE PERMISOS PARA RUTAS ESPECÍFICAS
+		http.authorizeRequests().antMatchers("/api").permitAll().antMatchers("/login").permitAll().antMatchers("/token")
+				.permitAll().antMatchers("/obtenerFoto/{codigo}").permitAll()
+				.antMatchers("/archivos/{per_codigo}/{uaa}/{usuario}").permitAll()
+				.antMatchers("/archivos/{usuario}/{uaa}").permitAll().antMatchers("/assets/**").permitAll()
+				.antMatchers("/**.png").permitAll().antMatchers("/**.js").permitAll().antMatchers("/**.css").permitAll()
+				.antMatchers("/swagger-ui.html", "/swagger-ui/**", "/v2/api-docs/**", "/webjars/**",
+						"/swagger-resources/**")
+				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/").permitAll().and().cors()
+				.configurationSource(corsConfigurationSource());
+	}
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        // CONFIGURACIÓN DE CORS (Cross-Origin Resource Sharing)
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("*"));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowCredentials(true);
-        config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource() {
+		// CONFIGURACIÓN DE CORS (Cross-Origin Resource Sharing)
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowedOrigins(Arrays.asList("*"));
+		config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+		config.setAllowCredentials(true);
+		config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
-        return source;
-    }
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", config);
+		return source;
+	}
 
-    @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter() {
-        // REGISTRO DE FILTRO CORS
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(corsConfigurationSource()));
-        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        return bean;
-    }
+	@Bean
+	public FilterRegistrationBean<CorsFilter> corsFilter() {
+		// REGISTRO DE FILTRO CORS
+		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(
+				new CorsFilter(corsConfigurationSource()));
+		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		return bean;
+	}
 }
