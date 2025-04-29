@@ -18,9 +18,7 @@ import org.springframework.stereotype.Repository;
 
 import com.usco.edu.dao.IAutorizacionDao;
 import com.usco.edu.entities.Autorizacion;
-import com.usco.edu.entities.Modulo;
 import com.usco.edu.resultSetExtractor.AutorizacionSetExtractor;
-import com.usco.edu.resultSetExtractor.ModuloSetExtractor;
 import com.usco.edu.rowMapper.AutorizacionRowMapper;
 import com.usco.edu.util.AuditoriaJdbcTemplate;
 
@@ -33,14 +31,6 @@ public class AutorizacionDaoImpl implements IAutorizacionDao {
 	@Autowired
 	@Qualifier("JDBCTemplateConsulta")
 	public JdbcTemplate jdbcTemplate;
-
-	@Override
-	public List<Modulo> obtenerListadoModulo() {
-
-		String sql = "select * from dbo.modulo m";
-		return jdbcTemplate.query(sql, new ModuloSetExtractor());
-
-	}
 
 	@Override
 	public List<Autorizacion> obtenerListadoAutorizacion() {

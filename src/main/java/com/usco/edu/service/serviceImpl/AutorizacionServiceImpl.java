@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.usco.edu.dao.IAutorizacionDao;
 import com.usco.edu.entities.Autorizacion;
-import com.usco.edu.entities.Modulo;
 import com.usco.edu.service.IAutorizacionService;
 
 @Service
@@ -15,13 +14,6 @@ public class AutorizacionServiceImpl implements IAutorizacionService {
 
 	@Autowired
 	private IAutorizacionDao autorizacionDao;
-
-	@Override
-	public List<Modulo> obtenerListadoModulo() {
-		
-		return autorizacionDao.obtenerListadoModulo();
-		
-	}
 
 	@Override
 	public List<Autorizacion> obtenerListadoAutorizacion() {

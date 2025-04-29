@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 public class Item {
 	
 	private Integer codigo;
-	private String nombre;
+	private String contenido;
+	private Integer seccionCodigo;
+	private String seccionNombre;
 	private Integer estado;
 
 }

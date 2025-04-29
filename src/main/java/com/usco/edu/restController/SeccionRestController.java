@@ -28,7 +28,7 @@ public class SeccionRestController {
 		return seccionService.obtenerListadoSeccion();
 
 	}
-	
+
 	@GetMapping(path = "obtener-listado-seccion-tipo")
 	public List<SeccionTipo> obtenerListadoSeccionTipo() {
 

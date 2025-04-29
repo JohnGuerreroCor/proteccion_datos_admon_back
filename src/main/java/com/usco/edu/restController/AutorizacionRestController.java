@@ -12,30 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usco.edu.entities.Autorizacion;
-import com.usco.edu.entities.Modulo;
 import com.usco.edu.service.IAutorizacionService;
 
 @RestController
 @RequestMapping(path = "autorizacion")
 public class AutorizacionRestController {
-	
+
 	@Autowired
 	IAutorizacionService autorizacionService;
-	
-	@GetMapping(path = "obtener-listado-modulo")
-	public List<Modulo> obtenerListadoModulo() {
 
-		return autorizacionService.obtenerListadoModulo();
-
-	}
-	
 	@GetMapping(path = "obtener-listado-autorizacion")
 	public List<Autorizacion> obtenerListadoAutorizacion() {
 
 		return autorizacionService.obtenerListadoAutorizacion();
 
 	}
-	
 
 	@GetMapping(path = "obtener-autorizacion/{codigo}")
 	public Autorizacion obtenerAutorizacion(@PathVariable Integer codigo) {

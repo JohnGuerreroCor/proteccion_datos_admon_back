@@ -88,7 +88,7 @@ public class MarcoNormativoRestController {
 	}
 
 	@PostMapping("registrar-normativa/{sys}/{perCodigo}/{uaa}")
-	public void registrarSoporteExpedicion(@PathVariable String sys, @PathVariable Integer perCodigo,
+	public void registrarNormativa(@PathVariable String sys, @PathVariable Integer perCodigo,
 			@RequestPart MultipartFile archivo, HttpServletRequest request, @PathVariable Integer uaa,
 			@RequestParam String json) {
 

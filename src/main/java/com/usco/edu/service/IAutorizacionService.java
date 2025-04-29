@@ -3,11 +3,8 @@ package com.usco.edu.service;
 import java.util.List;
 
 import com.usco.edu.entities.Autorizacion;
-import com.usco.edu.entities.Modulo;
 
 public interface IAutorizacionService {
-	
-	public List<Modulo> obtenerListadoModulo();
 	
 	public List<Autorizacion> obtenerListadoAutorizacion();
 	
